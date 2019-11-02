@@ -3,7 +3,18 @@
 $db = './storage/location.txt';
 
 $floors = ['GF', 'Floor 1', 'Floor 2', 'Floor 3', 'Floor 4', 'Floor 5', 'Roof', 'Out'];
-$parts = ['Sar-e Jash', 'Coffee Machine', 'Meeting Room', 'Samt-e Chap', 'Samt-e Raast', 'WC (Room be Divar)'];
+$parts = [
+    'Sar-e Jash',
+    'Coffee Machine',
+    'Meeting Room',
+    'Samt-e Chap',
+    'Samt-e Raast',
+    'Tah-e Tah',
+    'Kenar-e Dar',
+    'Tu Saf-e WC',
+    'WC (Room be Divar)',
+    'Posht-e Panjereh',
+];
 
 if (isset($_POST['update'])) {
     $floor = isset($_POST['floor']) ? strip_tags($_POST['floor']) : null;
