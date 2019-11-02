@@ -24,7 +24,8 @@ $location = substr($content, $separator + 1);
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>NimaKoo</title>
+    <meta name="description" content="Approximate location of Nima">
+    <title>NimaKoo | Approximate location of Nima</title>
     <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300|Questrial" rel="stylesheet">
     <style>
         body {
