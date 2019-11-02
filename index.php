@@ -102,6 +102,10 @@ $location = substr($content, $separator + 1);
         main form {
             font-size: 16px;
         }
+
+        main footer {
+            margin-top: 30px;
+        }
     </style>
 </head>
 <body>
@@ -133,6 +137,8 @@ $location = substr($content, $separator + 1);
         </select>
         <button type="submit" name="update">Update</button>
     </form>
+
+    <footer>Copyleft &copy; <?php echo date('Y') ?> by people who usually look for Nima!</footer>
 </main>
 
 </body>
