@@ -2,21 +2,23 @@
 
 $db = './storage/location.txt';
 
-if (isset($_POST['update'])) {
-    $floor = isset($_POST['floor']) ? strip_tags($_POST['floor']) : '';
-    $part = isset($_POST['part']) ? strip_tags($_POST['part']) : '';
-    $desc = isset($_POST['desc']) ? strip_tags($_POST['desc']) : '';
+$floors = ['GF', 'Floor 1', 'Floor 2', 'Floor 3', 'Floor 4', 'Floor 5', 'Roof', 'Out'];
+$parts = ['Sar-e Jash', 'Coffee Machine', 'Meeting Room', 'Samt-e Chap', 'Samt-e Raast', 'WC (Room be Divar)'];
 
-    if (empty($floor) || strlen($floor) > 16 || strlen($part) > 32 || strlen($desc) > 32) {
+if (isset($_POST['update'])) {
+    $floor = isset($_POST['floor']) ? strip_tags($_POST['floor']) : null;
+    if (in_array($floor, $floors) == false) {
+        exit("Bad Request!");
+    }
+
+    $part = isset($_POST['part']) ? strip_tags($_POST['part']) : null;
+    if ($part && in_array($part, $parts) == false) {
         exit("Bad Request!");
     }
 
     $newLocation = $floor;
     if ($part) {
-        $newLocation .= " - $part";
-    }
-    if ($desc) {
-        $newLocation .= " ($desc)";
+        $newLocation .= " ($part)";
     }
 
     try {
@@ -112,25 +114,12 @@ $location = substr($content, $separator + 1);
         <p>Update location:</p>
         <select name="floor" title="Floor" required>
             <option value="" disabled selected>[Select Floor]*</option>
-            <option>GF</option>
-            <option>Floor 1</option>
-            <option>Floor 2</option>
-            <option>Floor 3</option>
-            <option>Floor 4</option>
-            <option>Floor 5</option>
-            <option>Roof</option>
-            <option>Out</option>
+            <?php foreach ($floors as $floor) echo "<option>$floor</option>" ?>
         </select>
         <select name="part" title="Part">
             <option value="" disabled selected>[Select Part]</option>
-            <option>Coffee Machine</option>
-            <option>Meeting Room</option>
-            <option>Samte Chap</option>
-            <option>Samte Raast</option>
-            <option>WC (Room be divar)</option>
-            <option value="">Other</option>
+            <?php foreach ($parts as $part) echo "<option>$part</option>" ?>
         </select>
-        <input type="text" name="desc" placeholder="Description" title="Description">
         <button type="submit" name="update">Update</button>
     </form>
 </main>
