@@ -70,7 +70,7 @@ $location = substr($content, $separator + 1);
 <body>
 
 <aside>
-    <img src="alt.png" alt="Nima">
+    <img src="nima.jpg" alt="Nima">
 </aside>
 
 <main>
