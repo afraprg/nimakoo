@@ -128,7 +128,7 @@ $location = substr($content, $separator + 1);
     <form action="index.php" method="post">
         <p>Update location:</p>
         <select name="floor" title="Floor" required>
-            <option value="" disabled selected>[Select Floor]*</option>
+            <option value="" selected>[Select Floor]*</option>
             <?php foreach ($floors as $floor) echo "<option>$floor</option>" ?>
         </select>
         <select name="part" title="Part">
