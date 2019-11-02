@@ -14,6 +14,7 @@ $parts = [
     'Tu Saf-e WC',
     'WC (Room be Divar)',
     'Posht-e Panjereh',
+    'Southern Chaldoran'
 ];
 
 if (isset($_POST['update'])) {
