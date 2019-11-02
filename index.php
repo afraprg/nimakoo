@@ -19,7 +19,12 @@ if (isset($_POST['update'])) {
         $newLocation .= " ($desc)";
     }
 
-    $newTime = date('Y/m/d H:i:s');
+    try {
+        $date = new DateTime("now", new DateTimeZone('Asia/Tehran'));
+        $newTime = $date->format('Y-m-d H:i:s');
+    } catch (Exception $e) {
+        exit('Internal error.');
+    }
 
     $data = "$newTime,$newLocation";
     file_put_contents($db, $data);
@@ -119,10 +124,10 @@ $location = substr($content, $separator + 1);
         <select name="part" title="Part">
             <option value="" disabled selected>[Select Part]</option>
             <option>Coffee Machine</option>
-            <option>WC</option>
             <option>Meeting Room</option>
-            <option>Left Side</option>
-            <option>Right Side</option>
+            <option>Samte Chap</option>
+            <option>Samte Raast</option>
+            <option>WC (Room be divar)</option>
             <option value="">Other</option>
         </select>
         <input type="text" name="desc" placeholder="Description" title="Description">
