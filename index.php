@@ -29,7 +29,7 @@ $location = substr($content, $separator + 1);
     <link href="https://fonts.googleapis.com/css?family=Lobster|Open+Sans+Condensed:300|Questrial" rel="stylesheet">
     <style>
         body {
-            padding: 5% 0;
+            padding: 0;
             margin: 0;
         }
 
